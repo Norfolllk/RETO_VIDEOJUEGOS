@@ -1,0 +1,7 @@
+.app {
+  min-height: 100vh;
+  background: #1e1e2f;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
