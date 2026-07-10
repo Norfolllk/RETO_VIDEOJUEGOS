@@ -1,0 +1,139 @@
+.formulario-container {
+  max-width: 520px;
+  margin: 2rem auto;
+  padding: 1.75rem 2rem;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+}
+
+.formulario-container h2 {
+  text-align: center;
+  color: #1e1e2f;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.1rem;
+  position: relative;
+}
+
+.campo label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #4b5563;
+  margin-bottom: 0.4rem;
+}
+
+.campo input[type="text"],
+.campo input[type="number"],
+.campo input[type="date"],
+.campo select,
+.campo textarea {
+  padding: 0.65rem 0.85rem;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-family: inherit;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.campo input:focus,
+.campo select:focus,
+.campo textarea:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.12);
+}
+
+.campo textarea {
+  resize: vertical;
+  min-height: 80px;
+  transition: min-height 0.3s ease, all 0.3s ease;
+}
+
+.campo textarea:focus {
+  min-height: 130px;
+}
+
+.contador-caracteres {
+  align-self: flex-end;
+  font-size: 0.72rem;
+  color: #9ca3af;
+  margin-top: 0.2rem;
+}
+
+.error-mensaje {
+  color: #dc2626;
+  font-size: 0.78rem;
+  margin-top: 0.35rem;
+  font-weight: 500;
+  opacity: 0;
+  animation: error-entrada 0.25s ease forwards;
+}
+
+@keyframes error-entrada {
+  from {
+    opacity: 0;
+    transform: translateY(-3px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.campo-checkbox label {
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.formulario-botones {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.btn-guardar {
+  background: #6366f1;
+  color: white;
+  flex: 1;
+  border: none;
+  border-radius: 10px;
+  padding: 0.7rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.btn-guardar:hover {
+  background: #4f46e5;
+}
+
+.btn-cancelar {
+  background: #f3f4f6;
+  color: #374151;
+  flex: 1;
+  border: none;
+  border-radius: 10px;
+  padding: 0.7rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.btn-cancelar:hover {
+  background: #e5e7eb;
+}
+
+@media (max-width: 600px) {
+  .formulario-container {
+    margin: 1rem;
+    padding: 1.25rem;
+  }
+}
