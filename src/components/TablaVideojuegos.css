@@ -1,11 +1,21 @@
 .tabla-container {
   max-width: 960px;
+  width: 90%;
   margin: 2rem auto;
   padding: 1.5rem;
   background: #ffffff;
   border-radius: 12px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
   font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  box-sizing: border-box;
+}
+
+.tabla-scroll {
+  overflow-x: auto;
+}
+
+.tabla-videojuegos {
+  min-width: 780px;
 }
 
 .tabla-header {
@@ -144,4 +154,39 @@
   .progreso-wrapper {
     justify-content: flex-end;
   }
+}
+
+.acciones-wrapper {
+  display: flex;
+  gap: 0.4rem;
+  justify-content: center;
+  flex-wrap: nowrap;
+}
+
+.btn {
+  border: none;
+  border-radius: 6px;
+  padding: 0.35rem 0.6rem;
+  font-size: 0.75rem;
+  cursor: pointer;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.btn-editar {
+  background: #e0e7ff;
+  color: #4338ca;
+}
+
+.btn-editar:hover {
+  background: #c7d2fe;
+}
+
+.btn-eliminar {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.btn-eliminar:hover {
+  background: #fecaca;
 }
