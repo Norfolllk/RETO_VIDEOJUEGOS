@@ -1,11 +1,11 @@
-import { useNavigate } from "react-router-dom";
-import "./TablaVideojuegos.css";
+import { useNavigate } from 'react-router-dom';
+import './TablaVideojuegos.css';
 
 function TablaVideojuegos({ videojuegos, onEliminar }) {
   const navigate = useNavigate();
 
   function manejarEditar(juego) {
-    navigate("/editar", { state: { videojuego: juego } });
+    navigate('/editar', { state: { videojuego: juego } });
   }
 
   return (
@@ -41,41 +41,25 @@ function TablaVideojuegos({ videojuegos, onEliminar }) {
                 <td data-th="Año">{juego.lanzamiento}</td>
                 <td data-th="Precio">${juego.precio.toFixed(2)}</td>
                 <td data-th="Estado">
-                  <span
-                    className={`badge ${
-                      juego.disponible ? "badge-activo" : "badge-inactivo"
-                    }`}
-                  >
-                    {juego.disponible ? "Disponible" : "Agotado"}
+                  <span className={`badge ${juego.disponible ? 'badge-activo' : 'badge-inactivo'}`}>
+                    {juego.disponible ? 'Disponible' : 'Agotado'}
                   </span>
                 </td>
                 <td data-th="Descarga">
                   <div className="progreso-wrapper">
-                    <progress
-                      className="progreso-barra"
-                      value={juego.progreso}
-                      max="1"
-                    ></progress>
-                    <span className="progreso-texto">
-                      {Math.round(juego.progreso * 100)}%
-                    </span>
+                    <progress className="progreso-barra" value={juego.progreso} max="1"></progress>
+                    <span className="progreso-texto">{Math.round(juego.progreso * 100)}%</span>
                   </div>
                 </td>
-                <td data-th="Lanzamiento">{juego.fechaLanzamiento || "—"}</td>
+                <td data-th="Lanzamiento">{juego.fechaLanzamiento || juego.lanzamiento}</td>
                 <td data-th="Sinopsis">{juego.sinopsis}</td>
                 <td data-th="Calificación">{juego.calificacion}</td>
                 <td data-th="Acciones">
                   <div className="acciones-wrapper">
-                    <button
-                      className="btn btn-editar"
-                      onClick={() => manejarEditar(juego)}
-                    >
+                    <button className="btn btn-editar" onClick={() => manejarEditar(juego)}>
                       Editar
                     </button>
-                    <button
-                      className="btn btn-eliminar"
-                      onClick={() => onEliminar(juego.id)}
-                    >
+                    <button className="btn btn-eliminar" onClick={() => onEliminar(juego.id)}>
                       Eliminar
                     </button>
                   </div>

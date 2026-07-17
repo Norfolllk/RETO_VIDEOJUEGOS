@@ -1,0 +1,32 @@
+.toast-exito {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: rgba(22, 163, 74, 0.88);
+  color: white;
+  padding: 0.9rem 1rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(22, 163, 74, 0.28);
+  font-weight: 700;
+  backdrop-filter: blur(10px);
+  animation: toast-entrar 0.25s ease;
+}
+
+.toast-icono {
+  font-size: 1rem;
+}
+
+@keyframes toast-entrar {
+  from {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}

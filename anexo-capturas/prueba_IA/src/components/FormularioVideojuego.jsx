@@ -1,88 +1,83 @@
-import { useState, useEffect } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
-import "./FormularioVideojuego.css";
+import { useState, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
+import './FormularioVideojuego.css';
 
 function FormularioVideojuego({ onGuardar }) {
   const navigate = useNavigate();
   const location = useLocation();
   const videojuegoRecuperado = location.state?.videojuego;
 
-  const [titulo, setTitulo] = useState("");
-  const [genero, setGenero] = useState("");
-  const [plataforma, setPlataforma] = useState("");
-  const [lanzamiento, setLanzamiento] = useState("");
-  const [precio, setPrecio] = useState("");
+  const [titulo, setTitulo] = useState('');
+  const [genero, setGenero] = useState('');
+  const [plataforma, setPlataforma] = useState('');
+  const [precio, setPrecio] = useState('');
   const [disponible, setDisponible] = useState(true);
-  const [fechaLanzamiento, setFechaLanzamiento] = useState("");
-  const [sinopsis, setSinopsis] = useState("");
-  const [calificacion, setCalificacion] = useState("");
-
+  const [fechaLanzamiento, setFechaLanzamiento] = useState('');
+  const [sinopsis, setSinopsis] = useState('');
+  const [calificacion, setCalificacion] = useState('');
   const [errores, setErrores] = useState({});
 
   useEffect(() => {
     if (videojuegoRecuperado) {
-      // eslint-disable-next-line react-hooks/set-state-in-effect
-      setTitulo(videojuegoRecuperado.titulo || "");
-      setGenero(videojuegoRecuperado.genero || "");
-      setPlataforma(videojuegoRecuperado.plataforma || "");
-      setLanzamiento(videojuegoRecuperado.lanzamiento || "");
-      setPrecio(videojuegoRecuperado.precio || "");
+      setTitulo(videojuegoRecuperado.titulo || '');
+      setGenero(videojuegoRecuperado.genero || '');
+      setPlataforma(videojuegoRecuperado.plataforma || '');
+      setPrecio(videojuegoRecuperado.precio || '');
       setDisponible(videojuegoRecuperado.disponible ?? true);
-      setFechaLanzamiento(videojuegoRecuperado.fechaLanzamiento || "");
-      setSinopsis(videojuegoRecuperado.sinopsis || "");
-      setCalificacion(videojuegoRecuperado.calificacion || "");
+      setFechaLanzamiento(videojuegoRecuperado.fechaLanzamiento || '');
+      setSinopsis(videojuegoRecuperado.sinopsis || '');
+      setCalificacion(videojuegoRecuperado.calificacion || '');
     } else {
-      setTitulo("");
-      setGenero("");
-      setPlataforma("");
-      setLanzamiento("");
-      setPrecio("");
+      setTitulo('');
+      setGenero('');
+      setPlataforma('');
+      setPrecio('');
       setDisponible(true);
-      setFechaLanzamiento("");
-      setSinopsis("");
-      setCalificacion("");
+      setFechaLanzamiento('');
+      setSinopsis('');
+      setCalificacion('');
     }
   }, [videojuegoRecuperado]);
 
   function validarFormulario() {
     const erroresActivos = {};
-    const hoy = new Date().toISOString().split("T")[0];
+    const hoy = new Date().toISOString().split('T')[0];
 
     if (!titulo.trim()) {
-      erroresActivos.titulo = "El título no puede estar vacío.";
+      erroresActivos.titulo = 'El título no puede estar vacío.';
     }
 
     if (!genero) {
-      erroresActivos.genero = "Selecciona un género.";
+      erroresActivos.genero = 'Selecciona un género.';
     }
 
     if (!plataforma) {
-      erroresActivos.plataforma = "Selecciona una plataforma.";
+      erroresActivos.plataforma = 'Selecciona una plataforma.';
     }
 
     if (!fechaLanzamiento) {
-      erroresActivos.fechaLanzamiento = "La fecha de lanzamiento es obligatoria.";
+      erroresActivos.fechaLanzamiento = 'La fecha de lanzamiento es obligatoria.';
     } else if (fechaLanzamiento > hoy) {
-      erroresActivos.fechaLanzamiento = "La fecha no puede ser futura.";
+      erroresActivos.fechaLanzamiento = 'La fecha no puede ser futura.';
     }
 
     if (!sinopsis.trim()) {
-      erroresActivos.sinopsis = "La sinopsis es obligatoria.";
+      erroresActivos.sinopsis = 'La sinopsis es obligatoria.';
     } else if (sinopsis.trim().length < 10) {
-      erroresActivos.sinopsis = "La sinopsis debe tener al menos 10 caracteres.";
+      erroresActivos.sinopsis = 'La sinopsis debe tener al menos 10 caracteres.';
     } else if (sinopsis.trim().length > 250) {
-      erroresActivos.sinopsis = "La sinopsis no puede superar los 250 caracteres.";
+      erroresActivos.sinopsis = 'La sinopsis no puede superar los 250 caracteres.';
     }
 
     const calificacionNum = Number(calificacion);
     if (!calificacion) {
-      erroresActivos.calificacion = "La calificación es obligatoria.";
+      erroresActivos.calificacion = 'La calificación es obligatoria.';
     } else if (calificacionNum < 1 || calificacionNum > 100) {
-      erroresActivos.calificacion = "La calificación debe estar entre 1 y 100.";
+      erroresActivos.calificacion = 'La calificación debe estar entre 1 y 100.';
     }
 
     if (!precio || Number(precio) <= 0) {
-      erroresActivos.precio = "Ingresa un precio válido.";
+      erroresActivos.precio = 'Ingresa un precio válido.';
     }
 
     return erroresActivos;
@@ -92,7 +87,6 @@ function FormularioVideojuego({ onGuardar }) {
     e.preventDefault();
 
     const erroresActivos = validarFormulario();
-
     if (Object.keys(erroresActivos).length > 0) {
       setErrores(erroresActivos);
       return;
@@ -105,7 +99,7 @@ function FormularioVideojuego({ onGuardar }) {
       titulo: titulo.trim(),
       genero,
       plataforma,
-      lanzamiento: Number(lanzamiento) || new Date(fechaLanzamiento).getFullYear(),
+      lanzamiento: Number(new Date(fechaLanzamiento).getFullYear()) || new Date().getFullYear(),
       precio: Number(precio),
       disponible,
       fechaLanzamiento,
@@ -115,24 +109,20 @@ function FormularioVideojuego({ onGuardar }) {
     };
 
     onGuardar(videojuego);
-    navigate("/");
+    navigate('/');
   }
 
   function manejarCancelar() {
-    navigate("/");
+    navigate('/');
   }
 
   return (
     <div className="formulario-container">
-      <h2>{videojuegoRecuperado ? "Editar Videojuego" : "Nuevo Videojuego"}</h2>
+      <h2>{videojuegoRecuperado ? 'Editar Videojuego' : 'Nuevo Videojuego'}</h2>
       <form onSubmit={manejarGuardar} noValidate>
         <div className="campo">
           <label>Título:</label>
-          <input
-            type="text"
-            value={titulo}
-            onChange={(e) => setTitulo(e.target.value)}
-          />
+          <input type="text" value={titulo} onChange={(e) => setTitulo(e.target.value)} />
           {errores.titulo && <span className="error-mensaje">{errores.titulo}</span>}
         </div>
 
@@ -167,7 +157,7 @@ function FormularioVideojuego({ onGuardar }) {
           <input
             type="date"
             value={fechaLanzamiento}
-            //max={new Date().toISOString().split("T")[0]}
+            max={new Date().toISOString().split('T')[0]}
             onChange={(e) => setFechaLanzamiento(e.target.value)}
           />
           {errores.fechaLanzamiento && (
@@ -182,7 +172,7 @@ function FormularioVideojuego({ onGuardar }) {
             onChange={(e) => setSinopsis(e.target.value)}
             maxLength={250}
             rows={4}
-            placeholder="Escribe una breve reseña (10-250 caracteres)..."
+            placeholder="Escribe una reseña breve (10-250 caracteres)..."
           />
           <span className="contador-caracteres">{sinopsis.length}/250</span>
           {errores.sinopsis && <span className="error-mensaje">{errores.sinopsis}</span>}
@@ -216,11 +206,7 @@ function FormularioVideojuego({ onGuardar }) {
 
         <div className="campo campo-checkbox">
           <label>
-            <input
-              type="checkbox"
-              checked={disponible}
-              onChange={(e) => setDisponible(e.target.checked)}
-            />
+            <input type="checkbox" checked={disponible} onChange={(e) => setDisponible(e.target.checked)} />
             Disponible
           </label>
         </div>

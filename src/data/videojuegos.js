@@ -8,6 +8,8 @@ const data = [
     precio: 59.99,
     disponible: true,
     progreso: 0.85,
+    sinopsis: "La historia de Link se desarrolla en el reino de Hyrule, donde se enfrenta a nuevos desafíos y enemigos.",
+    calificacion: 9.5
   },
   {
     id: 2,
@@ -18,6 +20,8 @@ const data = [
     precio: 49.99,
     disponible: true,
     progreso: 1,
+    sinopsis: "Kratos y Atreus se embarcan en una nueva aventura para enfrentar a los dioses nórdicos y salvar el mundo.",
+    calificacion: 9.8
   },
   {
     id: 3,
@@ -28,6 +32,8 @@ const data = [
     precio: 69.99,
     disponible: false,
     progreso: 0.42,
+    sinopsis: "Explora un vasto universo en este juego de rol espacial, donde podrás personalizar tu nave y descubrir nuevos planetas.",
+    calificacion: 8.7
   },
   {
     id: 4,
@@ -38,6 +44,8 @@ const data = [
     precio: 59.99,
     disponible: true,
     progreso: 0.67,
+    sinopsis: "Embárcate en una épica aventura de rol en el mundo de los Reinos Olvidados, enfrentando peligros y tomando decisiones que afectarán tu destino.",
+    calificacion: 9.2
   },
   {
     id: 5,
@@ -48,6 +56,8 @@ const data = [
     precio: 14.99,
     disponible: true,
     progreso: 1,
+    sinopsis: "Explora un vasto mundo subterráneo lleno de secretos y enemigos en este juego de acción y aventura con un estilo artístico único.",
+    calificacion: 9.0
   },
   {
     id: 6,
@@ -58,6 +68,8 @@ const data = [
     precio: 39.99,
     disponible: true,
     progreso: 0.28,
+    sinopsis: "Sumérgete en el futuro oscuro de Night City, donde podrás crear tu propio personaje y decidir tu destino en una historia llena de intriga y acción.",
+    calificacion: 8.5
   },
   {
     id: 7,
@@ -68,6 +80,8 @@ const data = [
     precio: 69.99,
     disponible: false,
     progreso: 0.05,
+    sinopsis: "Peter Parker se enfrenta a nuevos desafíos como Spider-Man en esta épica aventura.",
+    calificacion: 9.0
   },
   {
     id: 8,
@@ -78,6 +92,8 @@ const data = [
     precio: 59.99,
     disponible: true,
     progreso: 1,
+    sinopsis: "Disfruta de carreras épicas en este juego de karting para Nintendo Switch.",
+    calificacion: 9.5
   },
 ];
 

@@ -1,7 +1,41 @@
 .app {
+  position: relative;
   min-height: 100vh;
-  background: #1e1e2f;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
+  padding-bottom: 2.5rem;
+}
+
+.app::before,
+.app::after {
+  content: "";
+  position: fixed;
+  inset: auto;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(14px);
+  opacity: 0.45;
+}
+
+.app::before {
+  width: 240px;
+  height: 240px;
+  top: 80px;
+  left: -60px;
+  background: rgba(124, 140, 255, 0.3);
+}
+
+.app::after {
+  width: 260px;
+  height: 260px;
+  right: -70px;
+  top: 180px;
+  background: rgba(45, 212, 191, 0.22);
+}
+
+@media (max-width: 640px) {
+  .app {
+    padding-bottom: 1.25rem;
+  }
 }
